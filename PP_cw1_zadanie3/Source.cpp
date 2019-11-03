@@ -6,7 +6,7 @@
 using namespace std;
 
 int main() {
-	double wynik, stopnie, alfa, x, v0, y0;
+	double wynik, stopnie, alfa, x, v0, y0, tg_alfa, cos_alfa;
 	const double G = 9.81;
 
 	cout << " wprowadz kat alfa w stopniach: ";
@@ -25,8 +25,11 @@ int main() {
 
 	alfa = stopnie * M_PI / 180.0;
 
+	tg_alfa = tan(alfa);
+	cos_alfa = cos(alfa);
 
-	wynik = x * tan(alfa) - (1.0 / 2 * v0 * v0) * (G * x * x / cos(alfa) * cos(alfa)) + y0;
+
+	wynik = (x * tg_alfa) - ((1.0 / 2 * v0 * v0) * (G * x * x / cos_alfa * cos_alfa)) + y0;
 
 	cout << "\n" << "wysokosc, na ktorej znajduje sie pilka  po przebyciu odleglosci  w poziomie to " << wynik;
 }
